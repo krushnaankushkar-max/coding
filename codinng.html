@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Warriors Coding Club | Innovate the Future</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --primary-grad: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --dark-bg: #0f0c29;
+            --glass: rgba(255, 255, 255, 0.1);
+            --accent: #00d2ff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            background: rgba(15, 12, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass);
+        }
+        .nav-link { color: #fff !important; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent) !important; }
+
+        /* --- Hero Section --- */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Cards & Sections --- */
+        .section-padding { padding: 80px 0; }
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* --- Gallery --- */
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        .gallery-img:hover { filter: brightness(1.2) scale(1.05); }
+
+        /* --- Buttons --- */
+        .btn-custom {
+            background: var(--primary-grad);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.4s;
+        }
+        .btn-custom:hover {
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* --- Toast Notification --- */
+        #toastBox {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">TECH WARRIORS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#membership">Join</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-outline-light rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="hero-title">Tech Warriors Coding Club</h1>
+            <p class="fs-4 mb-4">Learn • Code • Build • Innovate</p>
+            <a href="#membership" class="btn btn-custom btn-lg">Join Our Tribe</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4">
+                    <h2 class="fw-bold mb-4">Who We Are</h2>
+                    <p class="text-secondary">We are a community of passionate developers, designers, and innovators dedicated to mastering the art of technology.</p>
+                    <div class="mt-4">
+                        <h4 class="text-accent"><i class="fas fa-bullseye me-2"></i>Our Mission</h4>
+                        <p>To bridge the gap between academic learning and industry requirements through hands-on practice.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="glass-card">
+                        <h3 class="mb-3">Why Join Us?</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> Mentorship from Industry Experts</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> Access to Premium Resources</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> Collaborative Environment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-black bg-opacity-25">
+        <div class="container text-center">
+            <h2 class="mb-5 fw-bold">What We Offer</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                        <h4>Weekly Sessions</h4>
+                        <p>Dive deep into algorithms and data structures every weekend.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <i class="fas fa-trophy fa-3x mb-3 text-warning"></i>
+                        <h4>Hackathons</h4>
+                        <p>24-hour coding sprints to build real-world solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <i class="fas fa-laptop-code fa-3x mb-3 text-info"></i>
+                        <h4>Placement Prep</h4>
+                        <p>Mock interviews and resume building for top tech firms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Upcoming Events</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card bg-dark text-white border-secondary overflow-hidden">
+                        <div class="card-body p-4">
+                            <span class="badge bg-primary mb-2">March 15, 2024</span>
+                            <h4>Web-3 Workshop</h4>
+                            <p>Introduction to Blockchain and Smart Contracts.</p>
+                            <button class="btn btn-sm btn-outline-info">Register Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-dark text-white border-secondary overflow-hidden">
+                        <div class="card-body p-4">
+                            <span class="badge bg-purple mb-2" style="background:purple">April 02, 2024</span>
+                            <h4>AI Hack-A-Thon</h4>
+                            <p>Build the next generation of AI tools in 48 hours.</p>
+                            <button class="btn btn-sm btn-outline-info">Register Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Our Moments</h2>
+            <div class="row g-3">
+                <div class="col-md-4"><img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Work"></div>
+                <div class="col-md-4"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Team"></div>
+                <div class="col-md-4"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Code"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="membership" class="section-padding bg-black bg-opacity-25">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 glass-card">
+                    <h2 class="text-center mb-4">Join Tech Warriors</h2>
+                    <form id="membershipForm" onsubmit="return handleFormSubmit(event)">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" id="memName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control bg-dark text-white border-secondary" id="memEmail" placeholder="krushnalonikar@gmail.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-control bg-dark text-white border-secondary" id="memPhone" placeholder="9579873323" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Course</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-custom w-50">Submit Application</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt me-2 text-primary"></i> Somatne Phata, Pune, Maharashtra</p>
+                    <p><i class="fas fa-envelope me-2 text-primary"></i> krushnalonikar@gmail.com</p>
+                    <p><i class="fas fa-phone me-2 text-primary"></i> +91 9579873323</p>
+                </div>
+                <div class="col-md-7">
+                    <div class="rounded overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d15124.60742512615!2d73.6631189!3d18.7248981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b083b4c97987%3A0x6e9a6f7b1f13f17c!2sSomatne%20Phata%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="authModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title">Join the Portal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="authForm" onsubmit="return handleAuth(event)">
+                        <div class="mb-3">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control bg-dark text-white border-secondary" id="authEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" class="form-control bg-dark text-white border-secondary" id="authPass" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Login / Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastBox"></div>
+
+    <footer class="py-4 text-center border-top border-secondary">
+        <div class="mb-3">
+            <a href="#" class="text-white mx-2"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+        <p class="text-secondary small">© 2024 Tech Warriors Coding Club. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function showToast(message, type) {
+            const toastBox = document.getElementById('toastBox');
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type} animate__animated animate__fadeInRight`;
+            toast.style.minWidth = '250px';
+            toast.innerHTML = message;
+            toastBox.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.replace('animate__fadeInRight', 'animate__fadeOutRight');
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('memName').value;
+            if(name.length < 3) {
+                showToast("Please enter a valid name", "danger");
+                return false;
+            }
+            showToast("Success! Welcome to the Club Warrior!", "success");
+            e.target.reset();
+            return false;
+        }
+
+        function handleAuth(e) {
+            e.preventDefault();
+            const pass = document.getElementById('authPass').value;
+            if(pass.length < 6) {
+                showToast("Password too weak!", "danger");
+                return false;
+            }
+            showToast("Login Successful!", "primary");
+            bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+            return false;
+        }
+
+        window.onscroll = function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 0';
+                nav.style.background = 'rgba(0,0,0,0.9)';
+            } else {
+                nav.style.padding = '20px 0';
+                nav.style.background = 'rgba(15, 12, 41, 0.95)';
+            }
+        };
+    </script>
+</body>
+</html>
